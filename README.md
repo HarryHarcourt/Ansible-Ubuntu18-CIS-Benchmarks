@@ -1,6 +1,8 @@
 HarryHarcourt.Ansible-Ubuntu18-CIS-Benchmarks
 =========
 
+DO NOT USE THIS ROLE YET - IT IS NOT FINISHED
+
 All credit goes to anthcourtney for the original framework found here: https://github.com/anthcourtney/ansible-role-cis-amazon-linux
 
 This implementation has been converted to Ubuntu 18.x. 
