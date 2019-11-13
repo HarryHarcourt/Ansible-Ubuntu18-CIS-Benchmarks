@@ -1,26 +1,21 @@
-# Standards: 1.1.9
+# Standards: 1.1.38
 ---
 
 # 1.5.4 Ensure prelink is disabled
 
-- name: 1.5.4 - Check if prelink binary exists
-  yum:
-    list: prelink
-#    name: prelink
-#    state: present
-#  command: which prelink
-#  command: rpm -q prelink
-#  ignore_errors: true
-  register: which_1_5_4
+- name: 1.5.4 - Check if prelink is installed
+  shell: "dpkg -l | grep prelink | cut -d' ' -f1"  
+  register: pkg
   tags:
     - level-1
     - "1.5.4"
     - scored
     - skip_ansible_lint
 
-- name: 1.5.4 - Display registered output
+- name: 1.5.4 - Display the registered package
   debug:
-    msg: Ouput message is {{ which_1_5_4 }}
+    msg: Value equals {{ pkg.stdout_lines }} 
+  when: pkg.stdout_lines != "ii"
   tags:
     - level-1
     - "1.5.4"
@@ -32,7 +27,7 @@
 #  when: which_1_5_4.rc is defined and which_1_5_4.rc == 0
 #  when: which_1_5_4.results.yumstate == 'installed'
 #  when: which_1_5_4.results | search("installed")
-  when: "'installed' in which_1_5_4.results"
+  when: pkg.stdout_lines != "ii"
   tags:
     - level-1
     - "1.5.4"
@@ -40,9 +35,10 @@
     - skip_ansible_lint
 
 - name: 1.5.4 - Ensure prelink is disabled
-  yum:
+  apt:
     name: prelink
     state: absent
+  when: pkg.stdout_lines != "ii"
   tags:
     - level-1
     - "1.5.4"

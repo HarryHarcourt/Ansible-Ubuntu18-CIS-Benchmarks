@@ -1,3 +1,7 @@
+1.1.38 (2019-11-12)
+* Moved 1.4.2 to un-checked - don't like setting passwords in this tool
+* Did stuff through to 1.5.4, had to re-engineer, not pretty (and basic) but works, thinking should be a routine around this
+
 1.1.37 (2019-11-07)
 * Migrated the whole repo from HarryHarcourt/Ansible-RHEL7-CIS-Benchmarks to here, renaming to Ansible-Ubuntu18-CIS-Benchmarks
 * Updated vars/main.yml to validate for ubuntu 18.04
