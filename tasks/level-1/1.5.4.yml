@@ -15,7 +15,7 @@
 - name: 1.5.4 - Display the registered package
   debug:
     msg: Value equals {{ pkg.stdout_lines }} 
-  when: pkg.stdout_lines != "ii"
+  when: pkg.stdout == "ii"
   tags:
     - level-1
     - "1.5.4"
@@ -24,10 +24,7 @@
 
 - name: 1.5.4 - Restore prelinked binaries
   command: prelink -ua
-#  when: which_1_5_4.rc is defined and which_1_5_4.rc == 0
-#  when: which_1_5_4.results.yumstate == 'installed'
-#  when: which_1_5_4.results | search("installed")
-  when: pkg.stdout_lines != "ii"
+  when: pkg.stdout == "ii"
   tags:
     - level-1
     - "1.5.4"
@@ -38,7 +35,7 @@
   apt:
     name: prelink
     state: absent
-  when: pkg.stdout_lines != "ii"
+  when: pkg.stdout == "ii"
   tags:
     - level-1
     - "1.5.4"
