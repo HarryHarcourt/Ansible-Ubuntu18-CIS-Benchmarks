@@ -1,0 +1,25 @@
+# Standards: 1.1.39
+---
+
+# 1.6.2.1 Ensure AppArmor is not disabled in bootloader configuration
+
+- name: 1.6.2.1 - Ensure AppArmor is not disabled in bootloader configuration
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    line: "LogLevel debug"
+    state: present
+  check_mode: yes
+  register: presence
+  failed_when: presence is changed 
+  - level-1
+  - section-3
+  - "1.6.2.1"
+  - scored
+
+- name: "sample task in case the String present in the file"
+  debug: msg="DEBUG is enabled in Apache Log file"
+  when: presence is not changed
+  - level-1
+  - section-3
+  - "1.6.2.1"
+  - scored

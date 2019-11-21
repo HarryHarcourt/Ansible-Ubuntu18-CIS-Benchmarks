@@ -1,0 +1,13 @@
+# Standards: 1.1.39
+---
+
+# 1.6.1.4 Ensure no unconfined daemons exist
+
+- name: 1.6.1.4 - Ensure no unconfined daemons exist
+  debug:
+    msg: "WARNING - This check has not been implemented yet."
+  tags:
+    - level-1
+    - section-3
+    - "1.6.1.4"
+    - scored

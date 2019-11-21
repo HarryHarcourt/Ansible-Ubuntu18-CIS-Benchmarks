@@ -1,3 +1,6 @@
+1.1.39 (2019-11-20)
+* Worked on clearing stuff up from 1.7.1.4
+
 1.1.38 (2019-11-12)
 * Moved 1.4.2 to un-checked - don't like setting passwords in this tool
 * Did stuff through to 1.5.4, had to re-engineer, not pretty (and basic) but works, thinking should be a routine around this
