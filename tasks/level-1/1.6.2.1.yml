@@ -11,6 +11,7 @@
   check_mode: yes
   register: presence
   failed_when: presence is changed 
+  tags:
   - level-1
   - section-3
   - "1.6.2.1"
@@ -19,6 +20,7 @@
 - name: "sample task in case the String present in the file"
   debug: msg="DEBUG is enabled in Apache Log file"
   when: presence is not changed
+  tags:
   - level-1
   - section-3
   - "1.6.2.1"
